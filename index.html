@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Martinique</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f3f3f3;
+            margin: 0;
+            padding: 20px;
+        }
+        .activity-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 20px auto;
+            overflow: hidden;
+        }
+        .activity-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .activity-description {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .maps-link {
+            display: block;
+            margin-top: 10px;
+            font-size: 16px;
+            color: #007BFF;
+            text-decoration: none;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .button-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: white;
+            padding: 10px 0;
+            display: none;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+        }
+        #defil-button {
+            background-color: #007BFF;
+            color: white;
+        }
+        #remove-button {
+            background-color: red;
+            color: white;
+            margin-right: 10px;
+        }
+        #reset-button {
+            background-color: green;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Que fait-on aujourd'hui ?</h1>
+    <div class="activity-container">
+        <img id="activity-image" class="activity-image" src="./img/phare.png" alt="">
+    </div>
+    <button id="defil-button" onclick="startScrolling()">Lancer le défilement (0/0)</button>
+    <p class="activity-description" id="activity-description"></p>
+    <a id="maps-link" class="maps-link" href="#" target="_blank" style="display: none;">Voir sur Google Maps</a>
+    
+    <div class="button-container" id="button-container">
+        <button id="remove-button" onclick="removeSelectedActivity()">Ne plus proposer</button>
+        <button id="reset-button" onclick="resetActivities()">Réinitialiser</button>
+    </div>
+
+    <script>
+        let activities = [];
+        let originalActivities = [];
+        let scrollInterval;
+        let lastSelectedIndex = null;
+        let hasStarted = false;
+
+        // Charger les activités depuis un fichier JSON externe
+        fetch('./activities.json')
+            .then(response => response.json())
+            .then(data => {
+                activities = [...data];
+                originalActivities = [...data]; // Sauvegarde des activités originales pour réinitialisation
+                updateActivityCount();
+            })
+            .catch(error => console.error("Erreur de chargement du JSON :", error));
+        
+        function startScrolling() {
+            if (activities.length === 0) {
+                alert("Les activités ne sont pas encore chargées ou ont été toutes supprimées, réinitialisez la liste.");
+                return;
+            }
+            
+            const image = document.getElementById("activity-image");
+            const description = document.getElementById("activity-description");
+            const link = document.getElementById("maps-link");
+            let index = Math.floor(Math.random() * activities.length);
+            let speed = 100;
+            let iteration = 0;
+            
+            clearInterval(scrollInterval);
+            document.getElementById("button-container").style.display = "flex";
+            document.getElementById("button-container").style.justifyContent = "center";
+            hasStarted = true;
+            updateActivityCount();
+            
+            scrollInterval = setInterval(() => {
+                image.src = activities[index].img;
+                image.alt = activities[index].name;
+                description.innerHTML = `<strong>${activities[index].name} :</strong> ${activities[index].desc}`;
+                link.href = activities[index].maps;
+                link.style.display = "none";
+                
+                index = (index + 1) % activities.length;
+                iteration++;
+                
+                if (iteration > 10) speed += 100;
+                if (iteration > 20) speed += 200;
+                if (iteration > 30) speed += 300;
+                
+                if (speed > 1200) {
+                    clearInterval(scrollInterval);
+                    lastSelectedIndex = (index - 1 + activities.length) % activities.length;
+                    const selectedActivity = activities[lastSelectedIndex];
+                    description.innerHTML = `<strong>${selectedActivity.name} :</strong> ${selectedActivity.desc}`;
+                    link.href = selectedActivity.maps;
+                    link.style.display = "block";
+                    updateActivityCount();
+                }
+            }, speed);
+        }
+
+        function removeSelectedActivity() {
+            if (lastSelectedIndex !== null && activities.length > 0) {
+                activities.splice(lastSelectedIndex, 1);
+                lastSelectedIndex = null;
+                updateActivityCount();
+                if (activities.length === 0) {
+                    document.getElementById("button-container").style.display = "none";
+                }
+            }
+        }
+
+        function resetActivities() {
+            activities = [...originalActivities];
+            lastSelectedIndex = null;
+            updateActivityCount();
+            document.getElementById("button-container").style.display = "none";
+        }
+
+        function updateActivityCount() {
+            const defilButton = document.getElementById("defil-button");
+            defilButton.innerHTML = `Lancer le défilement (${activities.length}/${originalActivities.length})`;
+        }
+    </script>
+</body>
+</html>

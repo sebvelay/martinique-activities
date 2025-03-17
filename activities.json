@@ -1,0 +1,79 @@
+[
+    {
+        "name": "Kayak",
+        "desc": "Accompagné d'une ancienne championne belge, venez explorer la mangrove.",
+        "img": "./img/kayak.png",
+        "maps": "https://maps.google.com/?q=Plong%C3%A9e+Martinique"
+    },
+    {
+        "name": "Randonnée à la Montagne Pelée",
+        "desc": "On va tout là haut et on râle pas. Au pire on parlera des bouquetins",
+        "img": "./img/montpele.png",
+        "maps": "https://maps.google.com/?q=Montagne+Pel%C3%A9e"
+    }
+    ,
+    {
+        "name": "Distilerie clément",
+        "desc": "Ok on va pas se mentir, on n'y va pas QUE pour le côté culturel",
+        "img": "./img/clement.png",
+        "maps": "https://maps.google.com/?q=Distillerie+Clement"
+    }
+    ,
+    {
+        "name": "Catamaran",
+        "desc": "OMG ça a l'air trop bien.",
+        "img": "./img/cata.png",
+        "maps": "https://maps.google.com/?q=Catamaran+martinique"
+    }
+    ,
+    {
+        "name": "Jardin de balata",
+        "desc": "Petite balada OKLM dans un magnifique jardin entretenue. Et après on va à la plage.",
+        "img": "./img/balata.png",
+        "maps": "https://maps.google.com/?q=jardin+balata+martinique"
+    }
+    ,
+    {
+        "name": "Restaurant le cocotier",
+        "desc": "Très bonne combinaison pour ensuite faire la plage des Salines ou l'Anse Michel (selon le guide Lulu).",
+        "img": "./img/cocotier.png",
+        "maps": "https://www.google.com/maps?q=restaurant+le+cocotier+martinique"
+    }
+    ,
+    {
+        "name": "Cocoa Beach Café",
+        "desc": "Parfait pour manger quand on ira faire la presqu'île de la caravelle.",
+        "img": "./img/cocoa.png",
+        "maps": "https://www.google.com/maps?q=Cocoa+Beach+Cafe+martinique"
+    }
+    ,
+    {
+        "name": "Prequ'île de la caravelle",
+        "desc": "Rando : Il y en a 1 grande et 1 plus petite jusqu'au phare. Possibilité de voir des tortue. A combiner avec coco beach café et plage anse l’etang",
+        "img": "./img/caravelle.png",
+        "maps": "https://www.google.com/maps?q=Cocoa+Beach+Cafe+martinique"
+    }
+    ,
+    {
+        "name": "Rando Trou Cochon",
+        "desc": "Une rando, mais avec l'eau qui monte, qui finit dans le noir, accès difficile. Idéal pour voir qui survit.",
+        "img": "./img/cochon.png",
+        "maps": "https://www.google.com/maps?q=trou+cochon+martinique"
+    }
+    ,
+    {
+        "name": "Rando Morne Larcher",
+        "desc": "\"Rando la plus sportive, montée et descente raide. Éviter si pluie boueux et glissant. Vue incroyable\". En vrai ça a l'air top et c'est à côté de la deuxième maison :) ",
+        "img": "./img/MorneLarcher.png",
+        "maps": "https://www.google.com/maps?q=morne+larcher+martinique"
+    }
+    ,
+    {
+        "name": "Pointe du bout",
+        "desc": "🥳🏖️Le village créole à la pointe du bout est souvent animé le soir. Les plages d'Anse Mitan et de la pointe du Bout (celle du Bakoua) souvent sympas sur place.",
+        "img": "./img/pointdubout.png",
+        "maps": "https://www.google.com/maps?q=pointe+du+bout+martinique"
+    }
+    
+]
+
