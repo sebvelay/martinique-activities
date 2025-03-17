@@ -74,6 +74,13 @@
         "img": "./img/pointdubout.png",
         "maps": "https://www.google.com/maps?q=pointe+du+bout+martinique"
     }
+    ,
+    {
+        "name": "Anse Dufour",
+        "desc": "Petit Port de peche 🐢 🤿. Pas très loin de la première maison",
+        "img": "./img/ansedufour.png",
+        "maps": "https://www.google.com/maps?q=anse+dufour+martinique"
+    }
     
 ]
 
