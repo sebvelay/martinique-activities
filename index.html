@@ -98,8 +98,16 @@
                 activities = [...data];
                 originalActivities = [...data]; // Sauvegarde des activités originales pour réinitialisation
                 updateActivityCount();
+                preLoadImages();
             })
             .catch(error => console.error("Erreur de chargement du JSON :", error));
+        
+        function preLoadImages() {
+            activities.forEach(activity => {
+                const img = new Image();
+                img.src = activity.img;
+            });
+        }
         
         function startScrolling() {
             if (activities.length === 0) {
