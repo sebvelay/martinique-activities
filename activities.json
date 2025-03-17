@@ -23,7 +23,7 @@
         "name": "Catamaran",
         "desc": "OMG ça a l'air trop bien.",
         "img": "./img/cata.png",
-        "maps": "https://maps.google.com/?q=Catamaran+martinique"
+        "maps": "https://maps.app.goo.gl/ULVntqLayTjG4CKR9"
     }
     ,
     {
@@ -80,6 +80,20 @@
         "desc": "Petit Port de peche 🐢 🤿. Pas très loin de la première maison",
         "img": "./img/ansedufour.png",
         "maps": "https://www.google.com/maps?q=anse+dufour+martinique"
+    }
+    ,
+    {
+        "name": "Cocktail à l'Hotel Bakoua",
+        "desc": "🍹devant la piscine à débordement de l’hôtel bakouan",
+        "img": "./img/bakoua.png",
+        "maps": "https://maps.app.goo.gl/ud1eQPD8WwpYcwwS6"
+    }
+    ,
+    {
+        "name": "Plage des Salines",
+        "desc": "La plus réputée, souvent le lieu photo typique. A côté du resto le cocotier !",
+        "img": "./img/saline.png",
+        "maps": "https://maps.app.goo.gl/sENseSkFYd1qWr556"
     }
     
 ]
